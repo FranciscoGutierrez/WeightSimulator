@@ -51,3 +51,14 @@ activityBMR <- function(weight, height, age, male = TRUE, activity = 1){
   BMR <- switch(activity, BMR * 1,BMR * 1.2,BMR * 1.375,BMR * 1.55,BMR * 1.725,BMR * 1.95)
   return(BMR)
 }
+
+# Calculates the number of calories you should cut off to achieve that record on x time.
+# +- 500  -> 0.5 kg per week
+# +- 1000 ->   1 kg per week
+# Default. 24 weeks = 6 months
+calculateCutoff <- function(current, goal, weeks = 24){
+  return(1000 * ((current-goal)/weeks))
+}
+
+
+
